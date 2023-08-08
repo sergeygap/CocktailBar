@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:background="@drawable/btn_perimetr_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/title_il"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/title"
+            app:boxCornerRadiusBottomEnd="34dp"
+            app:boxCornerRadiusBottomStart="34dp"
+            app:boxCornerRadiusTopEnd="34dp"
+            app:boxCornerRadiusTopStart="34dp"
+            app:helperText="Add title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/description_il"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/description"
+            app:boxCornerRadiusBottomEnd="34dp"
+            app:boxCornerRadiusBottomStart="34dp"
+            app:boxCornerRadiusTopEnd="34dp"
+            app:boxCornerRadiusTopStart="34dp"
+            app:helperText="Optional field"
+            app:layout_constraintEnd_toEndOf="@+id/title_il"
+            app:layout_constraintStart_toStartOf="@+id/title_il"
+            app:layout_constraintTop_toBottomOf="@+id/title_il">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/description_et"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:gravity="start|top"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/ingredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="24dp"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/description_il"
+            app:layout_constraintStart_toStartOf="@+id/description_il"
+            app:layout_constraintTop_toBottomOf="@id/description_il">
+
+            <ImageButton
+                android:id="@+id/add_ingr"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/fab_background"
+                android:src="@drawable/add_24" />
+        </HorizontalScrollView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/recipe_il"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/recipe"
+            app:boxCornerRadiusBottomEnd="34dp"
+            app:boxCornerRadiusBottomStart="34dp"
+            app:boxCornerRadiusTopEnd="34dp"
+            app:boxCornerRadiusTopStart="34dp"
+            app:helperText="Optional field"
+            app:layout_constraintEnd_toEndOf="@+id/ingredients"
+            app:layout_constraintStart_toStartOf="@+id/ingredients"
+            app:layout_constraintTop_toBottomOf="@+id/ingredients">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/recipe_et"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:gravity="start|top"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/color_light_blue"
+            android:text="@string/save"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/recipe_il"
+            app:layout_constraintStart_toStartOf="@+id/recipe_il"
+            app:layout_constraintTop_toBottomOf="@id/recipe_il" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_perimetr_blue"
+            android:text="@string/cancel"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/save"
+            app:layout_constraintStart_toStartOf="@+id/save"
+            app:layout_constraintTop_toBottomOf="@id/save" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

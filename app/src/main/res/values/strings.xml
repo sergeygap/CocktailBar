@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Cocktail Bar</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="my_cocktails">My cocktails</string>
     <string name="add_your_first_cocktail_here">Add your first \ncocktail here</string>
@@ -8,4 +7,9 @@
     <string name="arrow_down">arrow down</string>
     <string name="pink_lemonade">Pink Lemonade</string>
     <string name="cocktails">cocktails</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="save">save</string>
+    <string name="cancel">cancel</string>
+    <string name="recipe">Recipe</string>
 </resources>
