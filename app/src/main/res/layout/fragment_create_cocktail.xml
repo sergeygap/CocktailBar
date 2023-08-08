@@ -68,23 +68,28 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <HorizontalScrollView
-            android:id="@+id/ingredients"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingr_il"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingVertical="24dp"
-            android:paddingStart="12dp"
+            android:hint="@string/ingredients"
+            app:boxCornerRadiusBottomEnd="34dp"
+            app:boxCornerRadiusBottomStart="34dp"
+            app:boxCornerRadiusTopEnd="34dp"
+            app:boxCornerRadiusTopStart="34dp"
+            app:helperText="Add ingredients"
             app:layout_constraintEnd_toEndOf="@+id/description_il"
             app:layout_constraintStart_toStartOf="@+id/description_il"
-            app:layout_constraintTop_toBottomOf="@id/description_il">
+            app:layout_constraintTop_toBottomOf="@+id/description_il">
 
-            <ImageButton
-                android:id="@+id/add_ingr"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/fab_background"
-                android:src="@drawable/add_24" />
-        </HorizontalScrollView>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ingr_et"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:gravity="start|top"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/recipe_il"
@@ -97,9 +102,9 @@
             app:boxCornerRadiusTopEnd="34dp"
             app:boxCornerRadiusTopStart="34dp"
             app:helperText="Optional field"
-            app:layout_constraintEnd_toEndOf="@+id/ingredients"
-            app:layout_constraintStart_toStartOf="@+id/ingredients"
-            app:layout_constraintTop_toBottomOf="@+id/ingredients">
+            app:layout_constraintEnd_toEndOf="@+id/ingr_il"
+            app:layout_constraintStart_toStartOf="@+id/ingr_il"
+            app:layout_constraintTop_toBottomOf="@+id/ingr_il">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/recipe_et"

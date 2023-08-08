@@ -50,8 +50,16 @@ class CreateCocktailFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Убрать ошибку, если пользователь начал вводить текст
                 binding.titleIl.error = null
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+        binding.ingrEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                binding.ingrIl.error = null
             }
 
             override fun afterTextChanged(s: Editable?) {}
@@ -61,11 +69,20 @@ class CreateCocktailFragment : Fragment() {
     private fun saveListener() {
         binding.save.setOnClickListener {
             val title: String = binding.titleEt.text.toString().trim()
+            val ingredients: String = binding.ingrEt.text.toString().trim()
             val description: String = binding.descriptionEt.text.toString().trim()
             val recept: String = binding.recipeEt.text.toString().trim()
+            if (title.isEmpty() && ingredients.isEmpty()){
+                binding.titleIl.error = "The field cannot be empty"
+                binding.ingrIl.error = "The field cannot be empty"
+
+            }
             if (title.isEmpty()) {
                 binding.titleIl.error = "The field cannot be empty"
-            } else {
+            } else if (ingredients.isEmpty()) {
+                binding.ingrIl.error = "The field cannot be empty"
+            }
+            else {
                 val cocktails = Cocktails(title = title, description = description, recipe = recept )
                 viewModel.addCocktails(cocktails)
                 launchFragment(MyCocktailsFragment())
