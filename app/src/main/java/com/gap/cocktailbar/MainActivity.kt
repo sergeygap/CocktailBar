@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.main_fragment_container_view,
                 fragment
             )
-            .addToBackStack(null)
             .commit()
     }
 

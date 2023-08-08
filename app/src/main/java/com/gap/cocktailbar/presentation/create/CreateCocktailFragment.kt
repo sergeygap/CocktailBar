@@ -35,7 +35,17 @@ class CreateCocktailFragment : Fragment() {
         saveListener()
         viewModel =
             ViewModelProvider(requireActivity())[CreateCocktailFragmentViewModel::class.java]
+        titleListeners()
+        cancelPressed()
+    }
 
+    private fun cancelPressed() {
+        binding.cancel.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+    }
+
+    private fun titleListeners() {
         binding.titleEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -46,7 +56,6 @@ class CreateCocktailFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {}
         })
-
     }
 
     private fun saveListener() {
@@ -70,7 +79,6 @@ class CreateCocktailFragment : Fragment() {
                 R.id.main_fragment_container_view,
                 fragment
             )
-            .addToBackStack(null)
             .commit()
     }
 
