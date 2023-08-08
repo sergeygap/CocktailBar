@@ -1,6 +1,6 @@
 package com.gap.cocktailbar.data
 
-import android.app.Application
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -9,22 +9,24 @@ import androidx.room.RoomDatabase
 abstract class CocktailsDatabase : RoomDatabase() {
     abstract fun cocktailsDao(): CocktailsDao
 
+
     companion object {
 
-        private var instance: CocktailsDatabase? = null
+        private var db: CocktailsDatabase? = null
         private const val DB_NAME = "cocktails.db"
+        private val LOCK = Any()
 
-        fun getInstance(application: Application): CocktailsDatabase {
-            if (instance == null) {
-                instance = Room.databaseBuilder(
-                    application,
+        fun getInstance(context: Context): CocktailsDatabase {
+            synchronized(LOCK) {
+                db?.let { return it }
+                val instance = Room.databaseBuilder(
+                    context,
                     CocktailsDatabase::class.java,
                     DB_NAME
-                )
-                    .build()
+                ).build()
+                db = instance
+                return instance
             }
-
-            return instance as CocktailsDatabase //
         }
     }
 

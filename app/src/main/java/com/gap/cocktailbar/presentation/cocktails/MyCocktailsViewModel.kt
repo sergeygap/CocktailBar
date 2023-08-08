@@ -1,21 +1,19 @@
-package com.gap.cocktailbar.presentation
+package com.gap.cocktailbar.presentation.cocktails
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.gap.cocktailbar.data.CocktailsDatabase
 import com.gap.cocktailbar.data.Cocktails
+import kotlin.concurrent.thread
 
 class MyCocktailsViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var cocktailsDatabase: CocktailsDatabase
+    private var db: CocktailsDatabase = CocktailsDatabase.getInstance(application)
 
-    init {
-        cocktailsDatabase = CocktailsDatabase.getInstance(application)
-    }
 
     fun getCocktails(): LiveData<List<Cocktails>>{
-        return cocktailsDatabase.cocktailsDao().getCocktails()
+        return db.cocktailsDao().getCocktails()
     }
 
 }

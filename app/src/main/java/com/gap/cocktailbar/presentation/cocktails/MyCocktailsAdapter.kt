@@ -1,4 +1,4 @@
-package com.gap.cocktailbar.presentation
+package com.gap.cocktailbar.presentation.cocktails
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

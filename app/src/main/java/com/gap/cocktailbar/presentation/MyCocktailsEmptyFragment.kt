@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.gap.cocktailbar.R
 import com.gap.cocktailbar.databinding.FragmentMyCocktailsEmptyBinding
+import com.gap.cocktailbar.presentation.create.CreateCocktailFragment
 
 
 class MyCocktailsEmptyFragment : Fragment() {

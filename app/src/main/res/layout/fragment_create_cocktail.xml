@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/title"
+            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="34dp"
             app:boxCornerRadiusBottomStart="34dp"
             app:boxCornerRadiusTopEnd="34dp"

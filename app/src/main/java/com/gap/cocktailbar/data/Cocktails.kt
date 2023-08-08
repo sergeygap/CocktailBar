@@ -8,7 +8,7 @@ data class Cocktails(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val title: String,
-    val description: String?,
-    val listIngredients: List<String>,
-    val recipe: String?
+    val description: String? = null,
+    val listIngredients: String? = null,
+    val recipe: String? = null
 )

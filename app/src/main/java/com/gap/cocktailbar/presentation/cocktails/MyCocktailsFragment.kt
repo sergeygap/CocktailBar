@@ -1,11 +1,15 @@
-package com.gap.cocktailbar.presentation
+package com.gap.cocktailbar.presentation.cocktails
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.gap.cocktailbar.R
 import com.gap.cocktailbar.databinding.FragmentMyCocktailsBinding
+import com.gap.cocktailbar.presentation.create.CreateCocktailFragment
 
 
 class MyCocktailsFragment : Fragment() {
@@ -29,10 +33,25 @@ class MyCocktailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         myCocktailsAdapter = MyCocktailsAdapter()
         binding.recyclerView.adapter = myCocktailsAdapter
-//        mainViewModel.getCocktails().observe(requireActivity(), Observer<List<Cocktails>> { cocktails -> myCocktailsAdapter.setCocktails(cocktails) })
+        mainViewModel = ViewModelProvider(requireActivity())[MyCocktailsViewModel::class.java]
+        mainViewModel.getCocktails().observe(requireActivity(), Observer {
+            myCocktailsAdapter.setCocktails(it)
+        })
+        binding.fabAdd.setOnClickListener {
+            launchFragment(CreateCocktailFragment())
+        }
 
     }
-
+    private fun launchFragment(fragment: Fragment) {
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.main_fragment_container_view,
+                fragment
+            )
+            .addToBackStack(null)
+            .commit()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
