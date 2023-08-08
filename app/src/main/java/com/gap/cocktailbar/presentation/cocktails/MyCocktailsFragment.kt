@@ -42,7 +42,7 @@ class MyCocktailsFragment : Fragment() {
         }
 
     }
-    private fun launchFragment(fragment: Fragment) {
+     fun launchFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager
             .beginTransaction()
             .replace(

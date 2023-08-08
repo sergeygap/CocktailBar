@@ -17,13 +17,13 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/cocktails"
             android:scaleType="centerCrop"
-            android:src="@drawable/lemonade" />
+            android:src="@drawable/main_background_item" />
 
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="30dp"
             android:ellipsize="end"
             android:fontFamily="@font/didact_gothic"
             android:lines="1"

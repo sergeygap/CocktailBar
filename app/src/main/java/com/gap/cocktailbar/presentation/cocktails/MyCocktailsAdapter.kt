@@ -1,11 +1,16 @@
 package com.gap.cocktailbar.presentation.cocktails
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.gap.cocktailbar.DetailsFragment
+import com.gap.cocktailbar.DetailsFragment.Companion.TITLE
 import com.gap.cocktailbar.R
 import com.gap.cocktailbar.data.Cocktails
 
@@ -50,8 +55,19 @@ class MyCocktailsAdapter : RecyclerView.Adapter<MyCocktailsAdapter.MyCocktailsVi
 
 
         holder.itemView.setOnClickListener {
-
+            val fragment = DetailsFragment()
+            val bundle = Bundle().apply {
+                val title = cocktails.title
+                putString(TITLE, title)
+            }
+            fragment.arguments = bundle
+            (holder.itemView.context as? AppCompatActivity)?.let { activity ->
+                (activity.supportFragmentManager
+                    .findFragmentById(R.id.main_fragment_container_view)
+                        as? MyCocktailsFragment)?.launchFragment(fragment)
+            }
         }
 
     }
+
 }
