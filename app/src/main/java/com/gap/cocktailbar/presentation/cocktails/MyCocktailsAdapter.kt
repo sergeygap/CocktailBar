@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.gap.cocktailbar.DetailsFragment
+import com.gap.cocktailbar.DetailsFragment.Companion.DESCRIPTION
+import com.gap.cocktailbar.DetailsFragment.Companion.RECEPT
 import com.gap.cocktailbar.DetailsFragment.Companion.TITLE
 import com.gap.cocktailbar.R
 import com.gap.cocktailbar.data.Cocktails
@@ -31,8 +33,10 @@ class MyCocktailsAdapter : RecyclerView.Adapter<MyCocktailsAdapter.MyCocktailsVi
     class MyCocktailsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textViewName: TextView
 
+
         init {
             textViewName = itemView.findViewById(R.id.textViewName)
+
         }
     }
 
@@ -59,6 +63,10 @@ class MyCocktailsAdapter : RecyclerView.Adapter<MyCocktailsAdapter.MyCocktailsVi
             val bundle = Bundle().apply {
                 val title = cocktails.title
                 putString(TITLE, title)
+                val description = cocktails.description
+                putString(DESCRIPTION, description)
+                val recept = cocktails.recipe
+                putString(RECEPT, recept)
             }
             fragment.arguments = bundle
             (holder.itemView.context as? AppCompatActivity)?.let { activity ->

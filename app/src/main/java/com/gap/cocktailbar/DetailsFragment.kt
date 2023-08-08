@@ -32,6 +32,17 @@ class DetailsFragment : Fragment() {
         if (title != null) {
             binding.title.text = title
         }
+        val description = requireArguments().getString(DESCRIPTION)
+        if (description != null) {
+            binding.description.text = description
+        }
+        val recept = requireArguments().getString(RECEPT)
+        if (recept != null) {
+            binding.receptHint.visibility = View.INVISIBLE
+            binding.recept.text = recept
+        } else {
+            binding.receptHint.visibility = View.VISIBLE
+        }
     }
 
     override fun onDestroyView() {
@@ -41,6 +52,8 @@ class DetailsFragment : Fragment() {
 
     companion object {
         const val TITLE = "title"
+        const val DESCRIPTION = "description"
+        const val RECEPT = "recept"
     }
 
 }

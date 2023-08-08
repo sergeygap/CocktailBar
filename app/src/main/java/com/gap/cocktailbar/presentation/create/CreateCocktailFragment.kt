@@ -61,10 +61,12 @@ class CreateCocktailFragment : Fragment() {
     private fun saveListener() {
         binding.save.setOnClickListener {
             val title: String = binding.titleEt.text.toString().trim()
+            val description: String = binding.descriptionEt.text.toString().trim()
+            val recept: String = binding.recipeEt.text.toString().trim()
             if (title.isEmpty()) {
                 binding.titleIl.error = "The field cannot be empty"
             } else {
-                val cocktails = Cocktails(title = title)
+                val cocktails = Cocktails(title = title, description = description, recipe = recept )
                 viewModel.addCocktails(cocktails)
                 launchFragment(MyCocktailsFragment())
             }
