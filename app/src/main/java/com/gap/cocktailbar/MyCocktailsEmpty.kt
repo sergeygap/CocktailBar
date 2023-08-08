@@ -7,14 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class MyCocktails : Fragment() {
+class MyCocktailsEmpty : Fragment() {
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_my_cocktails, container, false)
+
+        return inflater.inflate(R.layout.fragment_my_cocktails_empty, container, false)
     }
 
 
