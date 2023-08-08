@@ -1,22 +1,24 @@
 package com.gap.cocktailbar
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.gap.cocktailbar.presentation.MyCocktailsEmptyFragment
+import com.gap.cocktailbar.presentation.cocktails.MyCocktailsFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        if (intent.getStringExtra(MODE) == MODE_EMPTY) {
-//            launchFragment(MyCocktailsEmptyFragment())
-//        } else if (intent.getStringExtra(MODE) == MODE_READY) {
-//            launchFragment(MyCocktailsFragment())
-//        }
+        Log.d("Test", intent.getStringExtra(MODE).toString())
+        if (intent.getStringExtra(MODE) == MODE_EMPTY) {
+            launchFragment(MyCocktailsEmptyFragment())
+        } else if (intent.getStringExtra(MODE) == MODE_READY) {
+            launchFragment(MyCocktailsFragment())
+        }
 
-        launchFragment(MyCocktailsEmptyFragment())
 
     }
 
